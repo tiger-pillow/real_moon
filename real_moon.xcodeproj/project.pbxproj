@@ -13,10 +13,16 @@
 		43FB90162851EA060048E58C /* Tests_macOSLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43FB90152851EA060048E58C /* Tests_macOSLaunchTests.swift */; };
 		43FB90172851EA060048E58C /* real_moonApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43FB8FEF2851EA040048E58C /* real_moonApp.swift */; };
 		43FB90182851EA060048E58C /* real_moonApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43FB8FEF2851EA040048E58C /* real_moonApp.swift */; };
-		43FB90192851EA060048E58C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43FB8FF02851EA040048E58C /* ContentView.swift */; };
-		43FB901A2851EA060048E58C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43FB8FF02851EA040048E58C /* ContentView.swift */; };
+		43FB90192851EA060048E58C /* EditImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43FB8FF02851EA040048E58C /* EditImageView.swift */; };
+		43FB901A2851EA060048E58C /* EditImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43FB8FF02851EA040048E58C /* EditImageView.swift */; };
 		43FB901B2851EA060048E58C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 43FB8FF12851EA060048E58C /* Assets.xcassets */; };
 		43FB901C2851EA060048E58C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 43FB8FF12851EA060048E58C /* Assets.xcassets */; };
+		43FB902C2851F3190048E58C /* RealMoonModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43FB902B2851F3190048E58C /* RealMoonModel.swift */; };
+		43FB902D2851F3190048E58C /* RealMoonModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43FB902B2851F3190048E58C /* RealMoonModel.swift */; };
+		43FB902F2853506E0048E58C /* PhotoVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43FB902E2853506E0048E58C /* PhotoVM.swift */; };
+		43FB90302853506E0048E58C /* PhotoVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43FB902E2853506E0048E58C /* PhotoVM.swift */; };
+		43FB9032285374690048E58C /* RealMoonNavigationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43FB9031285374690048E58C /* RealMoonNavigationView.swift */; };
+		43FB9033285374690048E58C /* RealMoonNavigationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43FB9031285374690048E58C /* RealMoonNavigationView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,7 +44,7 @@
 
 /* Begin PBXFileReference section */
 		43FB8FEF2851EA040048E58C /* real_moonApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = real_moonApp.swift; sourceTree = "<group>"; };
-		43FB8FF02851EA040048E58C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		43FB8FF02851EA040048E58C /* EditImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditImageView.swift; sourceTree = "<group>"; };
 		43FB8FF12851EA060048E58C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		43FB8FF62851EA060048E58C /* real_moon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = real_moon.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		43FB8FFC2851EA060048E58C /* real_moon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = real_moon.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -49,6 +55,9 @@
 		43FB900F2851EA060048E58C /* Tests macOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Tests macOS.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		43FB90132851EA060048E58C /* Tests_macOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests_macOS.swift; sourceTree = "<group>"; };
 		43FB90152851EA060048E58C /* Tests_macOSLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests_macOSLaunchTests.swift; sourceTree = "<group>"; };
+		43FB902B2851F3190048E58C /* RealMoonModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealMoonModel.swift; sourceTree = "<group>"; };
+		43FB902E2853506E0048E58C /* PhotoVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoVM.swift; sourceTree = "<group>"; };
+		43FB9031285374690048E58C /* RealMoonNavigationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealMoonNavigationView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,7 +107,9 @@
 			isa = PBXGroup;
 			children = (
 				43FB8FEF2851EA040048E58C /* real_moonApp.swift */,
-				43FB8FF02851EA040048E58C /* ContentView.swift */,
+				43FB903428564C370048E58C /* Model */,
+				43FB902E2853506E0048E58C /* PhotoVM.swift */,
+				43FB903528564C470048E58C /* View */,
 				43FB8FF12851EA060048E58C /* Assets.xcassets */,
 			);
 			path = Shared;
@@ -139,6 +150,23 @@
 				43FB90152851EA060048E58C /* Tests_macOSLaunchTests.swift */,
 			);
 			path = "Tests macOS";
+			sourceTree = "<group>";
+		};
+		43FB903428564C370048E58C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				43FB902B2851F3190048E58C /* RealMoonModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		43FB903528564C470048E58C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				43FB8FF02851EA040048E58C /* EditImageView.swift */,
+				43FB9031285374690048E58C /* RealMoonNavigationView.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -299,7 +327,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				43FB90192851EA060048E58C /* ContentView.swift in Sources */,
+				43FB902C2851F3190048E58C /* RealMoonModel.swift in Sources */,
+				43FB902F2853506E0048E58C /* PhotoVM.swift in Sources */,
+				43FB9032285374690048E58C /* RealMoonNavigationView.swift in Sources */,
+				43FB90192851EA060048E58C /* EditImageView.swift in Sources */,
 				43FB90172851EA060048E58C /* real_moonApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -308,7 +339,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				43FB901A2851EA060048E58C /* ContentView.swift in Sources */,
+				43FB902D2851F3190048E58C /* RealMoonModel.swift in Sources */,
+				43FB90302853506E0048E58C /* PhotoVM.swift in Sources */,
+				43FB9033285374690048E58C /* RealMoonNavigationView.swift in Sources */,
+				43FB901A2851EA060048E58C /* EditImageView.swift in Sources */,
 				43FB90182851EA060048E58C /* real_moonApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

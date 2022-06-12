@@ -9,9 +9,10 @@ import SwiftUI
 
 @main
 struct real_moonApp: App {
+    let realmoon = PhotoVM()
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            RealMoonNavigationView(viewModel: realmoon)
         }
     }
 }
