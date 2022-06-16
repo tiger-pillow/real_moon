@@ -8,7 +8,7 @@
 import SwiftUI
 
 class PhotoVM: ObservableObject {
-    static let photo_names = ["verbier", "moontest","verbier", "moontest", "lapush","lapush"]
+    static let photo_names = ["verbier", "moontest","verbier", "moontest", "lapush", "verbier", "lapush", "moontest"]
     
     static func createRealMoonModel() -> RealMoonModel{
         RealMoonModel(array_of_names: photo_names)

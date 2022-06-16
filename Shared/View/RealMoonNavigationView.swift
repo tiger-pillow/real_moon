@@ -20,7 +20,6 @@ struct RealMoonNavigationView: View {
                         Text("Submit")
                     }
                 }
-        
                 HStack{
                     save_photo_button
                     Spacer()
@@ -29,37 +28,41 @@ struct RealMoonNavigationView: View {
             }.navigationTitle("Album").padding()
         }
         
-        
-///
     }
 }
 
 struct ScrollCards: View {
     let array_of_cards: Array<RealMoonModel.PhotoCard>
     
-    var body: some View { ScrollView {
-        LazyVGrid(columns: [GridItem(.adaptive(minimum: 100))]){
-            ForEach(array_of_cards){card in
-                NavigationLink(destination: EditImageView(card: card)){
-                    PictureCard(card: card)
+    var body: some View {
+        ScrollView {
+            LazyVGrid(columns: [GridItem(.adaptive(minimum: 100))]){
+                ForEach(array_of_cards){ card in
+                        NavigationLink(destination: EditImageView(card: card)){
+                            PictureCard(card: card )//, geo: geo)
+                        
+                        
+                       // }
+                    }
                 }
             }
         }
-    }
     }
 }
 
 struct PictureCard: View {
     let card: RealMoonModel.PhotoCard
     var body: some View{
+        //GeometryReader{ geo in
             Image(card.photo_name)
                 .resizable()
-                .scaledToFit()
-                    
+                .clipped()
+                .aspectRatio(1, contentMode: .fill)
+        //}
     }
 }
 
-struct  RMNVConstants {
+struct RMNVConstants {
     static let width: CGFloat = 100
     static let height: CGFloat = 200
 }
@@ -91,5 +94,8 @@ struct NavigationView_Previews: PreviewProvider {
     static var previews: some View {
         let realmoon = PhotoVM()
         RealMoonNavigationView(viewModel: realmoon)
+            .previewInterfaceOrientation(.landscapeLeft)
+        RealMoonNavigationView(viewModel: realmoon)
+            .previewInterfaceOrientation(.portrait)
     }
 }
