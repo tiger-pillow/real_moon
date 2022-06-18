@@ -13,7 +13,7 @@ struct EditImageView: View {
 
         VStack{
             HStack{
-                Image(card.photo_name).resizable().scaledToFit()
+                Image(card.photoName).resizable().scaledToFit()
             }.navigationTitle("Edit")
             Spacer()
            

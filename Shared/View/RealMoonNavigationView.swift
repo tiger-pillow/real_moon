@@ -9,23 +9,23 @@ import SwiftUI
 
 struct RealMoonNavigationView: View {
     @ObservedObject var viewModel: PhotoVM
-    @State private var name_temp: String = "Temp field"
+    @State private var isSelectingPhotos: Bool = false
+    @State private var selectedPhoto: UIImage = UIImage(imageLiteralResourceName: "verbier")
+    
     var body: some View {
         NavigationView{
             VStack{
                 ScrollCards(array_of_cards: viewModel.cards)
-                HStack{
-                    TextField("Enter photo name", text: $name_temp).textFieldStyle(.roundedBorder)
-                    Button{}label: {
-                        Text("Submit")
-                    }
-                }
-                HStack{
-                    save_photo_button
-                    Spacer()
-                    import_photo_button
-                }
+                Image(uiImage: selectedPhoto).resizable().frame(width: 300, height: 300)
             }.navigationTitle("Album").padding()
+                .toolbar{
+                    ToolbarItemGroup(placement: .navigationBarTrailing){
+                        save_photo_button
+                        import_photo_button(isSelectingPhotos: $isSelectingPhotos)}
+                    
+                }
+            }.sheet(isPresented: $isSelectingPhotos){
+                selectPhotoFromAlbumView(selectedPhoto: $selectedPhoto)
         }
         
     }
@@ -38,11 +38,10 @@ struct ScrollCards: View {
         ScrollView {
             LazyVGrid(columns: [GridItem(.adaptive(minimum: 100))]){
                 ForEach(array_of_cards){ card in
+                        VStack{
                         NavigationLink(destination: EditImageView(card: card)){
-                            PictureCard(card: card )//, geo: geo)
-                        
-                        
-                       // }
+                            PictureCard(card: card)
+                        }
                     }
                 }
             }
@@ -53,12 +52,14 @@ struct ScrollCards: View {
 struct PictureCard: View {
     let card: RealMoonModel.PhotoCard
     var body: some View{
-        //GeometryReader{ geo in
-            Image(card.photo_name)
-                .resizable()
-                .clipped()
-                .aspectRatio(1, contentMode: .fill)
-        //}
+        VStack{
+        Image(card.photoName)
+            .resizable()
+            .clipped()
+            .aspectRatio(1, contentMode: .fill)
+        Spacer()
+        }
+        
     }
 }
 
@@ -68,25 +69,24 @@ struct RMNVConstants {
 }
 
 
-var save_photo_button: some View{
-    Button{} label: {
-        VStack{
-            Image(systemName: "square.and.arrow.down").font(.largeTitle)
-            Text("Save to album")
+struct import_photo_button: View {
+    @Binding var isSelectingPhotos: Bool
+    var body: some View{
+    Button{
+        isSelectingPhotos = true
+    } label: {
+        Image(systemName: "plus.circle").font(.body)
         }
-    }
-}
-
-var import_photo_button: some View{
-    Button{} label: { VStack{
-        Image(systemName: "plus.circle").font(.largeTitle)
-        Text("Import photo")
-    }}.onTapGesture {
-        print("tapping the button")
     }
     
 }
 
+var save_photo_button: some View{
+    Button{} label: {
+        Image(systemName: "square.and.arrow.down").font(.body)
+
+    }
+}
 
 
 
@@ -99,3 +99,11 @@ struct NavigationView_Previews: PreviewProvider {
             .previewInterfaceOrientation(.portrait)
     }
 }
+
+
+//HStack{
+//    TextField("Enter photo name", text: $name_temp).textFieldStyle(.roundedBorder)
+//    Button{}label: {
+//        Text("Submit")
+//    }
+//}
