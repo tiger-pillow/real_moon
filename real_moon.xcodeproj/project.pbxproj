@@ -13,6 +13,8 @@
 		43E61813285E301700BE5202 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 43E61812285E301700BE5202 /* RealmSwift */; };
 		43E61815285E32A000BE5202 /* PhotoObjectRealm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43E61814285E32A000BE5202 /* PhotoObjectRealm.swift */; };
 		43E61816285E32A000BE5202 /* PhotoObjectRealm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43E61814285E32A000BE5202 /* PhotoObjectRealm.swift */; };
+		43E6181D285F513C00BE5202 /* RealmHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43E6181C285F513C00BE5202 /* RealmHelper.swift */; };
+		43E6181E285F513C00BE5202 /* RealmHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43E6181C285F513C00BE5202 /* RealmHelper.swift */; };
 		43FB90082851EA060048E58C /* Tests_iOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43FB90072851EA060048E58C /* Tests_iOS.swift */; };
 		43FB900A2851EA060048E58C /* Tests_iOSLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43FB90092851EA060048E58C /* Tests_iOSLaunchTests.swift */; };
 		43FB90142851EA060048E58C /* Tests_macOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43FB90132851EA060048E58C /* Tests_macOS.swift */; };
@@ -51,6 +53,7 @@
 /* Begin PBXFileReference section */
 		43E6180C285DC69000BE5202 /* selectPhotoFromAlbumView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = selectPhotoFromAlbumView.swift; sourceTree = "<group>"; };
 		43E61814285E32A000BE5202 /* PhotoObjectRealm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoObjectRealm.swift; sourceTree = "<group>"; };
+		43E6181C285F513C00BE5202 /* RealmHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmHelper.swift; sourceTree = "<group>"; };
 		43FB8FEF2851EA040048E58C /* real_moonApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = real_moonApp.swift; sourceTree = "<group>"; };
 		43FB8FF02851EA040048E58C /* EditImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditImageView.swift; sourceTree = "<group>"; };
 		43FB8FF12851EA060048E58C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -121,6 +124,7 @@
 				43FB902E2853506E0048E58C /* PhotoVM.swift */,
 				43FB903528564C470048E58C /* View */,
 				43FB8FF12851EA060048E58C /* Assets.xcassets */,
+				43E6181C285F513C00BE5202 /* RealmHelper.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -351,6 +355,7 @@
 				43E6180D285DC69000BE5202 /* selectPhotoFromAlbumView.swift in Sources */,
 				43E61815285E32A000BE5202 /* PhotoObjectRealm.swift in Sources */,
 				43FB9032285374690048E58C /* RealMoonNavigationView.swift in Sources */,
+				43E6181D285F513C00BE5202 /* RealmHelper.swift in Sources */,
 				43FB90192851EA060048E58C /* EditImageView.swift in Sources */,
 				43FB90172851EA060048E58C /* real_moonApp.swift in Sources */,
 			);
@@ -365,6 +370,7 @@
 				43E6180E285DC69000BE5202 /* selectPhotoFromAlbumView.swift in Sources */,
 				43E61816285E32A000BE5202 /* PhotoObjectRealm.swift in Sources */,
 				43FB9033285374690048E58C /* RealMoonNavigationView.swift in Sources */,
+				43E6181E285F513C00BE5202 /* RealmHelper.swift in Sources */,
 				43FB901A2851EA060048E58C /* EditImageView.swift in Sources */,
 				43FB90182851EA060048E58C /* real_moonApp.swift in Sources */,
 			);

@@ -7,22 +7,37 @@
 
 import SwiftUI
 import RealmSwift
+import Combine
 
 class PhotoVM: ObservableObject {
-    static let photo_names = ["verbier", "moontest","verbier", "moontest", "lapush", "verbier", "lapush", "moontest"]
-
-    static func createRealMoonModel() -> RealMoonModel{
-        RealMoonModel(array_of_names: photo_names)
-    }
+    static let photo_names = ["lapush", "lapush"]
+    var realm: Realm?
     
-    let localRealm = try! Realm()
+    @Published var photoObjects: Results<PhotoObjectRealm>?
     
-
     
-    @Published private var model = createRealMoonModel()
-    
-    var cards: [RealMoonModel.PhotoCard] {
-        model.PhotoCardArray
+    init() {
+        let realm = try? Realm()
+        self.realm = realm
+        
+        //if realm?.objects(PhotoObjectRealm.self).count == 0 {
+            try? realm?.write({ // need add a CATCH here some time
+                for name in PhotoVM.photo_names {
+                    let temp_ojbect = PhotoObjectRealm()
+                    temp_ojbect.photoName = name
+                    temp_ojbect.id = ObjectId.generate()
+                    realm?.add(
+                        temp_ojbect
+                    )
+                }
+            })
+//        } else {
+//            let temp = realm?.objects(PhotoObjectRealm.self)
+//            self.photoObjects = temp!
+//        }
+            
+        
+        
     }
     
 }

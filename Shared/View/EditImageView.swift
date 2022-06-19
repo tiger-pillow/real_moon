@@ -6,9 +6,10 @@
 //
 
 import SwiftUI
+import RealmSwift
 
 struct EditImageView: View {
-    var card: RealMoonModel.PhotoCard
+    var card: PhotoObjectRealm
     var body: some View {
 
         VStack{
@@ -25,8 +26,9 @@ struct EditImageView: View {
 
 
 struct EditImageView_Previews: PreviewProvider {
+    static let temp = PhotoObjectRealm(photoName: "verbier");
+
     static var previews: some View {
-        let realmoon = PhotoVM()
-        EditImageView(card: realmoon.cards[0])
+        EditImageView(card: temp)
     }
 }

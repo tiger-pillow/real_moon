@@ -6,17 +6,27 @@
 //
 
 import SwiftUI
+import RealmSwift
 
 struct RealMoonNavigationView: View {
-    @ObservedObject var viewModel: PhotoVM
+    
+    @StateObject var viewModel = PhotoVM()
+    
+    
+    // local states
     @State private var isSelectingPhotos: Bool = false
     @State private var selectedPhoto: UIImage = UIImage(imageLiteralResourceName: "verbier")
+    
+    
+    /// experimenting using Realm
+    
     
     var body: some View {
         NavigationView{
             VStack{
-                ScrollCards(array_of_cards: viewModel.cards)
-                Image(uiImage: selectedPhoto).resizable().frame(width: 300, height: 300)
+                ScrollCards(array_of_cards: viewModel.photoObjects!)
+                Text(viewModel.photoObjects![0].photoName)
+//                Image(uiImage: selectedPhoto).resizable().frame(width: 300, height: 300)
             }.navigationTitle("Album").padding()
                 .toolbar{
                     ToolbarItemGroup(placement: .navigationBarTrailing){
@@ -32,7 +42,7 @@ struct RealMoonNavigationView: View {
 }
 
 struct ScrollCards: View {
-    let array_of_cards: Array<RealMoonModel.PhotoCard>
+    let array_of_cards: Results<PhotoObjectRealm>
     
     var body: some View {
         ScrollView {
@@ -50,7 +60,7 @@ struct ScrollCards: View {
 }
 
 struct PictureCard: View {
-    let card: RealMoonModel.PhotoCard
+    let card: PhotoObjectRealm
     var body: some View{
         VStack{
         Image(card.photoName)
@@ -89,21 +99,14 @@ var save_photo_button: some View{
 }
 
 
-
 struct NavigationView_Previews: PreviewProvider {
     static var previews: some View {
-        let realmoon = PhotoVM()
-        RealMoonNavigationView(viewModel: realmoon)
-            .previewInterfaceOrientation(.landscapeLeft)
-        RealMoonNavigationView(viewModel: realmoon)
-            .previewInterfaceOrientation(.portrait)
+        Group {
+            RealMoonNavigationView()
+                .previewInterfaceOrientation(.portrait)
+            RealMoonNavigationView()
+                .previewInterfaceOrientation(.portrait)
+        }
     }
 }
 
-
-//HStack{
-//    TextField("Enter photo name", text: $name_temp).textFieldStyle(.roundedBorder)
-//    Button{}label: {
-//        Text("Submit")
-//    }
-//}

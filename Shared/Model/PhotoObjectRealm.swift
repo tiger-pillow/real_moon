@@ -8,13 +8,15 @@
 import Foundation
 import RealmSwift
 
-final  class PhotoObjectRealm: Object, ObjectKeyIdentifiable{
+final class PhotoObjectRealm: Object, ObjectKeyIdentifiable{
     @Persisted(primaryKey: true) var id: ObjectId
     @Persisted var photoName: String
     
     convenience init(photoName: String) {
-            self.init()
-            self.photoName = photoName
+        self.init()
+        self.id = ObjectId()
+        self.photoName = photoName
+
         }
-}
+} 
  
